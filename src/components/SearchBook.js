@@ -28,3 +28,6 @@ class SearchBook extends Component {
         )
     }
 }
+
+
+export default SearchBook;
