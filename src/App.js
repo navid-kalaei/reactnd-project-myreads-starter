@@ -99,7 +99,7 @@ class BooksApp extends React.Component {
                         <div className="list-books-content">
                             <div>
                                 {this.state.shelves.map((shelf) => (
-                                    <BookShelf title={shelf.title} books={shelf.books}/>
+                                    <BookShelf key={shelf.title} title={shelf.title} books={shelf.books}/>
                                 ))}
                             </div>
                         </div>
