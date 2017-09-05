@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
 
+/**
+ *@description Options that move change a book status
+ * @returns {JSX} menue with change options
+ */
 class BookShelfChanger extends Component {
-    /**
-     *@description Options that move change a book status
-     * @returns {JSX} menue with change options
-     */
 
     render() {
         return (

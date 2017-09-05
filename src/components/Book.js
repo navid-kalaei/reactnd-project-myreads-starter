@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 
 
+/**
+ * @description complete book containing image, title, authors, and change shelf button
+ * @returns {JSX} a single book
+ */
 class Book extends Component {
-    /**
-     * @description complete book containing image, title, authors, and change shelf button
-     * @returns {JSX} a single book
-     */
+
     render() {
         return (
             <div className="book">
@@ -19,3 +20,5 @@ class Book extends Component {
         );
     }
 }
+
+//TODO: add prop-types
