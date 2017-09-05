@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
 import BookShelf from './components/BookShelf'
@@ -70,7 +70,7 @@ class BooksApp extends React.Component {
     render() {
         return (
             <div className="app">
-                {this.state.showSearchPage ? (
+                <Route path="/search" render={() => (
                     <div className="search-books">
                         <div className="search-books-bar">
                             <Link className="close-search" to="/">Close</Link>
@@ -91,7 +91,9 @@ class BooksApp extends React.Component {
                             <ol className="books-grid"></ol>
                         </div>
                     </div>
-                ) : (
+                )}/>
+
+                <Route path="/" render={() => (
                     <div className="list-books">
                         <div className="list-books-title">
                             <h1>MyReads</h1>
@@ -107,7 +109,7 @@ class BooksApp extends React.Component {
                             <Link to="/search">Add a book</Link>
                         </div>
                     </div>
-                )}
+                )}/>
             </div>
         )
     }
