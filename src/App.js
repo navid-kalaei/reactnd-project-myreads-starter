@@ -1,3 +1,8 @@
+//TODO: prop-type
+//TODO: activate apis
+//TODO: search
+//TODO: Change book status
+
 import React from 'react'
 import { Route, Link } from 'react-router-dom'
 // import * as BooksAPI from './BooksAPI'
@@ -73,7 +78,7 @@ class BooksApp extends React.Component {
             <div className="app">
                 <Route path="/search" component={SearchBook}/>
 
-                <Route path="/" render={() => (
+                <Route exact path="/" render={() => (
                     <div className="list-books">
                         <div className="list-books-title">
                             <h1>MyReads</h1>
