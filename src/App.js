@@ -16,15 +16,15 @@ class BooksApp extends React.Component {
         shelves: [
             {
                 id: "currentlyReading",
-                name: "Currently Reading"
+                title: "Currently Reading"
             },
             {
                 id: "wantToRead",
-                name: "Want to Read"
+                title: "Want to Read"
             },
             {
                 id: "read",
-                name: "Read"
+                title: "Read"
             }
         ],
         books: []
