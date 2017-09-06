@@ -15,7 +15,9 @@ class Book extends Component {
                     <BookShelfChanger/>
                 </div>
                 <div className="book-title">{this.props.title}</div>
-                <div className="book-authors">{this.props.authors}</div>
+                {this.props.authors.map((author) => (
+                    <div className="book-authors">{author}</div>
+                ))}
             </div>
         );
     }
