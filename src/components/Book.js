@@ -8,14 +8,15 @@ import BookShelfChanger from './BookShelfChanger'
 class Book extends Component {
 
     render() {
+        const book = this.props.book
         return (
             <div className="book">
                 <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.thumbnail})` }}></div>
-                    <BookShelfChanger/>
+                    <div className="book-cover" style={{ backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
+                    <BookShelfChanger book={book}/>
                 </div>
-                <div className="book-title">{this.props.title}</div>
-                {this.props.authors.map((author) => (
+                <div className="book-title">{book.title}</div>
+                {book.authors.map((author) => (
                     <div className="book-authors">{author}</div>
                 ))}
             </div>
