@@ -11,20 +11,21 @@ class SearchBook extends Component {
         books: []
     };
 
-    updateQuery = (query) => {
-        query = query.trim();
-        this.setState((state) => ({query, books: state.books}));
-    };
-
     searchBook = (query) => {
-        this.updateQuery(query);
+        query = query.trim();
+        this.setState(({query}));
         search(this.state.query)
             .then((books) => {
-                (books && this.setState((state) => ({books, query: state.query})))
+                if (books){
+                    if(!books.hasOwnProperty('error')) {
+                        this.setState((state) => ({books, query: state.query}))
+                    }
+                    else {
+                        console.log(`ERROR IN SEARCH BOOK: ${books.error}`)
+                    }
+                }
             })
-            .catch((e) => console.log(e)
-            //HERE THE ERROR IS HAPPENS!!!!!!
-            );
+            .catch((e) => (console.log('EXCEPTION IN SERACHBOOK: ', e, this.state)));
     };
 
 

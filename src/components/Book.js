@@ -7,21 +7,27 @@ import BookShelfChanger from './BookShelfChanger'
  */
 class Book extends Component {
 
+    checkProps = (book) => (book && book.imageLinks && book.imageLinks.thumbnail && book.authors);
+
     render() {
         const book = this.props.book;
-        ((book == undefined) && (console.log("UNDDEEEEFIIIINED!!!")));
-        return (
-            <div className="book">
-                <div className="book-top">
-                    <div className="book-cover" style={{ backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
-                    <BookShelfChanger book={book} onChangingShelfOfBook={this.props.onChangingShelfOfBook}/>
+
+        if(this.checkProps(book)) {
+            return (
+                <div className="book">
+                    <div className="book-top">
+                        <div className="book-cover"
+                             style={{backgroundImage: `url(${book.imageLinks.thumbnail})`}}></div>
+                        <BookShelfChanger book={book} onChangingShelfOfBook={this.props.onChangingShelfOfBook}/>
+                    </div>
+                    <div className="book-title">{book.title}</div>
+                    {book.authors.map((author) => (
+                        <div className="book-authors">{author}</div>
+                    ))}
                 </div>
-                <div className="book-title">{book.title}</div>
-                {book.authors.map((author) => (
-                    <div className="book-authors">{author}</div>
-                ))}
-            </div>
-        );
+            );
+        }
+        return (null)
     }
 }
 
