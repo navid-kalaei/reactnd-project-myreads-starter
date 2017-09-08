@@ -1,7 +1,6 @@
 //TODO: prop-type
 //TODO: activate apis
 //TODO: search
-//TODO: Change book status
 
 import React from 'react'
 import { Route, Link } from 'react-router-dom'
@@ -37,6 +36,26 @@ class BooksApp extends React.Component {
         })
     }
 
+    getUpdatedBooks = (state, bookId, newShelf) => {
+        const books = [];
+        for(let book of state.books) {
+            if (book.id === bookId){
+                book.shelf = newShelf;
+                books.push(book);
+                continue
+            }
+            books.push(book);
+        }
+        return books;
+    };
+
+    changeShelfOfBook = (bookId, newShelf) => {
+        this.setState((state) => ({
+            shelves: state.shelves,
+            books: this.getUpdatedBooks(state, bookId, newShelf)
+        }))
+    };
+
     render() {
         return (
             <div className="app">
@@ -51,7 +70,9 @@ class BooksApp extends React.Component {
                             <div>
                                 {this.state.shelves.map((shelf) => (
                                     <BookShelf key={shelf.title} title={shelf.title}
-                                               books={this.state.books.filter((book) => book.shelf === shelf.id)}/>
+                                               books={this.state.books.filter((book) => book.shelf === shelf.id)}
+                                               onChangingShelfOfBook={this.changeShelfOfBook}
+                                    />
                                 ))}
                             </div>
                         </div>
