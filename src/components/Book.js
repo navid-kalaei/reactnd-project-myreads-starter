@@ -9,6 +9,7 @@ class Book extends Component {
 
     render() {
         const book = this.props.book;
+        ((book == undefined) && (console.log("UNDDEEEEFIIIINED!!!")));
         return (
             <div className="book">
                 <div className="book-top">

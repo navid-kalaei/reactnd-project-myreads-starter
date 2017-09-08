@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import { search } from '../BooksAPI'
+import Book from './Book'
 
 
 class SearchBook extends Component {
@@ -10,14 +11,22 @@ class SearchBook extends Component {
         books: []
     };
 
-    searchBook = (query) => {
+    updateQuery = (query) => {
         query = query.trim();
-        this.setState({query});
-        search(query)
-            .then((books) => {
-            this.setState({books, query})
-            })
+        this.setState((state) => ({query, books: state.books}));
     };
+
+    searchBook = (query) => {
+        this.updateQuery(query);
+        search(this.state.query)
+            .then((books) => {
+                (books && this.setState((state) => ({books, query: state.query})))
+            })
+            .catch((e) => console.log(e)
+            //HERE THE ERROR IS HAPPENS!!!!!!
+            );
+    };
+
 
     render() {
         return (
@@ -31,11 +40,14 @@ class SearchBook extends Component {
                                    value={this.state.query}
                                    onChange={(event) => this.searchBook(event.target.value)}
                             />
-
                         </div>
                     </div>
                     <div className="search-books-results">
-                        <ol className="books-grid"></ol>
+                        <ol className="books-grid">
+                            {this.state.books && this.state.books.map((book) => (
+                                <Book book={book} onChangingShelfOfBook={(...args) => {}}/>
+                            ))}
+                        </ol>
                     </div>
                 </div>
             </div>
