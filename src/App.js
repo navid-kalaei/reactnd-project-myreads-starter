@@ -1,6 +1,6 @@
 //TODO: prop-type
-//TODO: activate apis
-//TODO: search
+//TODO: sort
+
 import React from 'react'
 import { Route } from 'react-router-dom'
 import './App.css'

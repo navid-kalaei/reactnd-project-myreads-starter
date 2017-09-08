@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
+import sortBy from 'sort-by'
 import { search } from '../BooksAPI'
 import Book from './Book'
 
@@ -46,7 +47,7 @@ class SearchBook extends Component {
                     </div>
                     <div className="search-books-results">
                         <ol className="books-grid">
-                            {this.state.books && this.state.books.map((book) => (
+                            {this.state.books && this.state.books.sort(sortBy('title')).map((book) => (
                                 <Book book={book} onChangingShelfOfBook={(...args) => {}}/>
                             ))}
                         </ol>
