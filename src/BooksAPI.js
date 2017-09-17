@@ -39,6 +39,12 @@ export const getAll = () =>
     .then(res => res.json())
     .then(data => data.books);
 
+
+/**
+ * @description update a book's status (shelf)
+ * @param {json} book - The book that you want to change its shelf
+ * @param {string} shelf - New shelf ID that you want to change it to
+ */
 export const update = (book, shelf) =>
   fetch(`${api}/books/${book.id}`, {
     method: 'PUT',
