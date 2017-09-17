@@ -23,7 +23,7 @@ class SearchBook extends Component {
                             this.setState((state) => ({books, query: state.query}))
                         }
                         else {
-                            console.log(`ERROR IN SEARCHBOOK: {error: ${books.error}, query:${query}}`)
+                            // console.log(`ERROR IN SEARCHBOOK: {error: ${books.error}, query:${query}}`)
                         }
                     }
                 })

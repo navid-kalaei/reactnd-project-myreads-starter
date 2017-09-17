@@ -27,6 +27,6 @@ class BookShelfChanger extends Component {
     }
 }
 
-export default BookShelfChanger
+export default BookShelfChanger;
 
 //TODO: add state to generate options dynamically

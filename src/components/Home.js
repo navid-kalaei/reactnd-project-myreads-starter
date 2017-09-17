@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { getAll } from "../BooksAPI"
-import BookShelf from './BookShelf'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { getAll } from "../BooksAPI";
+import BookShelf from './BookShelf';
 
 class Home extends Component {
 

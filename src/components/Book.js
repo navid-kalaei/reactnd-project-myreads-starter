@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import BookShelfChanger from './BookShelfChanger'
+import React, { Component } from 'react';
+import BookShelfChanger from './BookShelfChanger';
 
 /**
  * @description complete book containing image, title, authors, and change shelf button
@@ -31,6 +31,6 @@ class Book extends Component {
     }
 }
 
-export default Book
+export default Book;
 
 //TODO: add prop-types
