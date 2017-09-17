@@ -29,6 +29,11 @@ export const get = (bookId) =>
     .then(res => res.json())
     .then(data => data.book);
 
+
+/**
+ * @description get all available books
+ * @return {json} - All books from backend
+ */
 export const getAll = () =>
   fetch(`${api}/books`, { headers })
     .then(res => res.json())
