@@ -32,6 +32,7 @@ export const get = (bookId) =>
 
 /**
  * @description get all available books
+ * @method GET
  * @return {json} - All books from backend
  */
 export const getAll = () =>
