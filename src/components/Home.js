@@ -1,3 +1,8 @@
+/**
+ * @description Home route that contains shelves and books
+ * @export {component} Home - The home route
+ */
+
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getAll } from "../BooksAPI";
