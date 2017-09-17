@@ -18,6 +18,12 @@ const headers = {
   'Authorization': token
 };
 
+
+/**
+ * @description get a book details by its ID
+ * @param {integer} bookId - ID of the book that you want to get details
+ * @return {json} - The gotten book
+ */
 export const get = (bookId) =>
   fetch(`${api}/books/${bookId}`, { headers })
     .then(res => res.json())
