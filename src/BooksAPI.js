@@ -55,6 +55,14 @@ export const update = (book, shelf) =>
     body: JSON.stringify({ shelf })
   }).then(res => res.json());
 
+
+/**
+ * @description search for books in authors and title via the sent query
+ * @method POST
+ * @param query
+ * @param maxResults
+ * @return {promise} filtered books
+ */
 export const search = (query, maxResults=20) =>
   fetch(`${api}/search`, {
     method: 'POST',
