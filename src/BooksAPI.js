@@ -42,6 +42,7 @@ export const getAll = () =>
 
 /**
  * @description update a book's status (shelf)
+ * @method PUT
  * @param {json} book - The book that you want to change its shelf
  * @param {string} shelf - New shelf ID that you want to change it to
  */
