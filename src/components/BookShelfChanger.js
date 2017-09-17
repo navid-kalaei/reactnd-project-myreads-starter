@@ -1,10 +1,12 @@
+/**
+ * @description Options that move change a book status
+ * @returns {JSX} menue with change options
+ */
+
 import React, { Component } from 'react';
 import { update } from "../BooksAPI";
 
-/**
- *@description Options that move change a book status
- * @returns {JSX} menue with change options
- */
+
 class BookShelfChanger extends Component {
 
     render() {
