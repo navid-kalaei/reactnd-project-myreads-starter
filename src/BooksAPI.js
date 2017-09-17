@@ -21,6 +21,7 @@ const headers = {
 
 /**
  * @description get a book details by its ID
+ * @method GET
  * @param {integer} bookId - ID of the book that you want to get details
  * @return {json} - The gotten book
  */
