@@ -1,4 +1,7 @@
-
+/**
+ * @description APIs including get, getAll, update, search. Set headers and use localStorage as authentication
+ * @type {string}
+ */
 const api = "https://reactnd-books-api.udacity.com";
 
 
