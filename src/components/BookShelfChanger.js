@@ -1,34 +1,37 @@
 /**
  * @description Options that move change a book status
- * @returns {JSX} menue with change options
+ * @returns {component} menue with change options
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { update } from "../BooksAPI";
 
 
-class BookShelfChanger extends Component {
+function BookShelfChanger(props) {
 
-    render() {
-        return (
-            <div className="book-shelf-changer">
-                <select onChange={(event) => {
-                    const currentBook = this.props.book;
-                    const newShelf = event.target.value;
-                    update(currentBook, newShelf);
-                    this.props.onChangingShelfOfBook(currentBook.id, newShelf);
-                }}>
-                    <option className="option-disabled">Move to...</option>
-                    <option value="currentlyReading">Currently Reading</option>
-                    <option value="wantToRead">Want to Read</option>
-                    <option value="read">Read</option>
-                    <option value="none">None</option>
-                </select>
-            </div>
-        );
-    }
+    return (
+        <div className="book-shelf-changer">
+            <select onChange={(event) => {
+                const currentBook = props.book;
+                const newShelf = event.target.value;
+                update(currentBook, newShelf);
+                props.onChangingShelfOfBook(currentBook.id, newShelf);
+            }}>
+                <option className="option-disabled">Move to...</option>
+                <option value="currentlyReading">Currently Reading</option>
+                <option value="wantToRead">Want to Read</option>
+                <option value="read">Read</option>
+                <option value="none">None</option>
+            </select>
+        </div>
+    );
 }
 
-export default BookShelfChanger;
+BookShelfChanger.propTypes = {
+    book: PropTypes.object.isRequired,
+    onChangingShelfOfBook: PropTypes.func.isRequired
+};
 
-//TODO: add state to generate options dynamically
+
+export default BookShelfChanger;
