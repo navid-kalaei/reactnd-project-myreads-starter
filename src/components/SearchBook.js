@@ -36,6 +36,8 @@ class SearchBook extends Component {
         }
     };
 
+    changeShelfOfBook = (...args) => {};
+
     render() {
         return (
             <div className="app">
@@ -53,7 +55,7 @@ class SearchBook extends Component {
                     <div className="search-books-results">
                         <ol className="books-grid">
                             {this.state.books && this.state.books.sort(sortBy('title')).map((book) => (
-                                <Book book={book} onChangingShelfOfBook={(...args) => {}}/>
+                                <Book book={book} onChangingShelfOfBook={this.changeShelfOfBook}/>
                             ))}
                         </ol>
                     </div>
