@@ -1,13 +1,19 @@
 /**
  * @description Options that move change a book status
- * @returns {JSX} menue with change options
+ * @returns {component} menue with change options
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { update } from "../BooksAPI";
 
 
 class BookShelfChanger extends Component {
+
+    static propTypes = {
+        book: PropTypes.object.isRequired,
+        onChangingShelfOfBook: PropTypes.func.isRequired
+    };
 
     render() {
         return (
@@ -30,5 +36,3 @@ class BookShelfChanger extends Component {
 }
 
 export default BookShelfChanger;
-
-//TODO: add state to generate options dynamically
