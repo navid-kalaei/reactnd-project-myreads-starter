@@ -4,10 +4,16 @@
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { update } from "../BooksAPI";
 
 
 class BookShelfChanger extends Component {
+
+    static propTypes = {
+        book: PropTypes.object.isRequired,
+        onChangingShelfOfBook: PropTypes.func.isRequired
+    };
 
     render() {
         return (
@@ -30,5 +36,3 @@ class BookShelfChanger extends Component {
 }
 
 export default BookShelfChanger;
-
-//TODO: add state to generate options dynamically
