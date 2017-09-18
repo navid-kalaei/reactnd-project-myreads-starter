@@ -32,7 +32,7 @@ class SearchBook extends Component {
                         }
                     }
                 })
-                .catch((e) => (console.log('EXCEPTION IN SERACHBOOK: ', e, this.state)));
+                .catch((e) => {/*console.log('EXCEPTION IN SERACHBOOK: ', e, this.state)*/});
         }
     };
 
