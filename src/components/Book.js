@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import BookShelfChanger from './BookShelfChanger';
 
 /**
  * @description complete book containing image, title, authors, and change shelf button
- * @returns {JSX} a single book
+ * @returns {component} a single book
  */
 class Book extends Component {
+
+    static propTypes = {
+        book: PropTypes.object.isRequired,
+        onChangingShelfOfBook: PropTypes.func.isRequired
+    };
 
     checkProps = (book) => (book && book.imageLinks && book.imageLinks.thumbnail && book.authors);
 
@@ -22,7 +28,7 @@ class Book extends Component {
                     </div>
                     <div className="book-title">{book.title}</div>
                     {book.authors.map((author) => (
-                        <div className="book-authors">{author}</div>
+                        <div key={author} className="book-authors">{author}</div>
                     ))}
                 </div>
             );
@@ -32,5 +38,3 @@ class Book extends Component {
 }
 
 export default Book;
-
-//TODO: add prop-types

@@ -3,7 +3,7 @@
  * @returns {component} menue with change options
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { update } from "../BooksAPI";
 

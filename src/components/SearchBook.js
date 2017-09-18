@@ -17,6 +17,7 @@ class SearchBook extends Component {
         books: []
     };
 
+
     searchBook = (query) => {
         query = query.trim();
         this.setState(({query}));
@@ -36,7 +37,9 @@ class SearchBook extends Component {
         }
     };
 
+
     changeShelfOfBook = (...args) => {};
+
 
     render() {
         return (
@@ -55,7 +58,9 @@ class SearchBook extends Component {
                     <div className="search-books-results">
                         <ol className="books-grid">
                             {this.state.books && this.state.books.sort(sortBy('title')).map((book) => (
-                                <Book book={book} onChangingShelfOfBook={this.changeShelfOfBook}/>
+                                <li key={book.id}>
+                                    <Book book={book} onChangingShelfOfBook={this.changeShelfOfBook}/>
+                                </li>
                             ))}
                         </ol>
                     </div>

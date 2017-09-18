@@ -22,8 +22,8 @@ const headers = {
 /**
  * @description get a book details by its ID
  * @method GET
- * @param {integer} bookId - ID of the book that you want to get details
- * @return {json} - The gotten book
+ * @param {int} bookId - ID of the book that you want to get details
+ * @return {JSON} - The gotten book
  */
 export const get = (bookId) =>
   fetch(`${api}/books/${bookId}`, { headers })
@@ -34,7 +34,7 @@ export const get = (bookId) =>
 /**
  * @description get all available books
  * @method GET
- * @return {json} - All books from backend
+ * @return {JSON} - All books from backend
  */
 export const getAll = () =>
   fetch(`${api}/books`, { headers })
@@ -45,7 +45,7 @@ export const getAll = () =>
 /**
  * @description update a book's status (shelf)
  * @method PUT
- * @param {json} book - The book that you want to change its shelf
+ * @param {JSON} book - The book that you want to change its shelf
  * @param {string} shelf - New shelf ID that you want to change it to
  */
 export const update = (book, shelf) =>
@@ -64,7 +64,7 @@ export const update = (book, shelf) =>
  * @method POST
  * @param query
  * @param maxResults
- * @return {promise} filtered books
+ * @return {Promise} filtered books
  */
 export const search = (query, maxResults=20) =>
   fetch(`${api}/search`, {
