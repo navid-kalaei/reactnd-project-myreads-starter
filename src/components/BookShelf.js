@@ -9,6 +9,12 @@ import Book from './Book'
  */
 class BookShelf extends Component {
 
+    static propTypes = {
+        title: PropTypes.string.isRequired,
+        books: PropTypes.array.isRequired,
+        onChangingShelfOfBook: PropTypes.func.isRequired
+    };
+
     render() {
         return (
         <div className="bookshelf">
