@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import sortBy from 'sort-by'
 import PropTypes from 'prop-types'
 import Book from './Book'
@@ -7,30 +7,28 @@ import Book from './Book'
  * @description bookshelf containing books
  * @return {component} bookshelf containing books
  */
-class BookShelf extends Component {
+function BookShelf(props) {
 
-    static propTypes = {
-        title: PropTypes.string.isRequired,
-        books: PropTypes.array.isRequired,
-        onChangingShelfOfBook: PropTypes.func.isRequired
-    };
-
-    render() {
-        return (
+    return (
         <div className="bookshelf">
-            <h2 className="bookshelf-title">{this.props.title}</h2>
+            <h2 className="bookshelf-title">{props.title}</h2>
             <div className="bookshelf-books">
                 <ol className="books-grid">
-                    {this.props.books.sort(sortBy('title')).map((book) => (
+                    {props.books.sort(sortBy('title')).map((book) => (
                         <li key={book.id}>
-                            <Book book={book} onChangingShelfOfBook={this.props.onChangingShelfOfBook}/>
+                            <Book book={book} onChangingShelfOfBook={props.onChangingShelfOfBook}/>
                         </li>
                     ))}
                 </ol>
             </div>
         </div>
-        );
-    }
+    );
 }
+
+BookShelf.propTypes = {
+    title: PropTypes.string.isRequired,
+    books: PropTypes.array.isRequired,
+    onChangingShelfOfBook: PropTypes.func.isRequired
+};
 
 export default BookShelf;
