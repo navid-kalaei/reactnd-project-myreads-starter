@@ -5,7 +5,7 @@ import Book from './Book'
 
 /**
  * @description bookshelf containing books
- * @return {JSX} bookshelf containing books
+ * @return {component} bookshelf containing books
  */
 class BookShelf extends Component {
 
