@@ -4,7 +4,7 @@ import BookShelfChanger from './BookShelfChanger';
 
 /**
  * @description complete book containing image, title, authors, and change shelf button
- * @returns {JSX} a single book
+ * @returns {component} a single book
  */
 class Book extends Component {
 
