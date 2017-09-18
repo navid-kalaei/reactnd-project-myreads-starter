@@ -1,11 +1,12 @@
+/**
+ * @description complete book containing image, title, authors, and change shelf button
+ * @exports {component} a single book
+ */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import BookShelfChanger from './BookShelfChanger';
 
-/**
- * @description complete book containing image, title, authors, and change shelf button
- * @returns {component} a single book
- */
 class Book extends Component {
 
     static propTypes = {

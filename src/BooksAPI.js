@@ -1,6 +1,6 @@
 /**
  * @description APIs including get, getAll, update, search. Set headers and use localStorage as authentication
- * @type {string}
+ * @exports {Promise} API
  */
 
 
@@ -23,7 +23,7 @@ const headers = {
  * @description get a book details by its ID
  * @method GET
  * @param {int} bookId - ID of the book that you want to get details
- * @return {JSON} - The gotten book
+ * @return {Promise} - The gotten book
  */
 export const get = (bookId) =>
   fetch(`${api}/books/${bookId}`, { headers })
@@ -34,7 +34,7 @@ export const get = (bookId) =>
 /**
  * @description get all available books
  * @method GET
- * @return {JSON} - All books from backend
+ * @return {Promise} - All books from backend
  */
 export const getAll = () =>
   fetch(`${api}/books`, { headers })

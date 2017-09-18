@@ -1,6 +1,6 @@
 /**
  * @description Options that move change a book status
- * @returns {component} menue with change options
+ * @exports {component} menue with change options
  */
 
 import React from 'react';

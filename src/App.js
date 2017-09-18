@@ -1,6 +1,6 @@
 /**
  * @description main app
- * @export {component} BookApp - The main app
+ * @exports {component} BookApp - The main app
  */
 
 import React from 'react';

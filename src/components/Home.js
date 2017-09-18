@@ -1,6 +1,6 @@
 /**
  * @description Home route that contains shelves and books
- * @export {component} Home - The home route
+ * @exports {component} Home - The home route
  */
 
 import React, { Component } from 'react';

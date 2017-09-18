@@ -1,6 +1,6 @@
 /**
  * @description Search route that works with api and search for books via authors and title as chars enters in search box
- * @export {component} SearchBook - The search book route
+ * @exports {component} SearchBook - The search book route
  */
 
 import React, {Component} from 'react'

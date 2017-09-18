@@ -1,12 +1,14 @@
+/**
+ * @description bookshelf containing books
+ * @exports {component} bookshelf containing books
+ */
+
 import React from 'react'
 import sortBy from 'sort-by'
 import PropTypes from 'prop-types'
 import Book from './Book'
 
-/**
- * @description bookshelf containing books
- * @return {component} bookshelf containing books
- */
+
 function BookShelf(props) {
 
     return (
