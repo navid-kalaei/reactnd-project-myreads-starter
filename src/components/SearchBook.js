@@ -53,7 +53,9 @@ class SearchBook extends Component {
                     <div className="search-books-results">
                         <ol className="books-grid">
                             {this.state.books && this.state.books.sort(sortBy('title')).map((book) => (
-                                <Book book={book} onChangingShelfOfBook={(...args) => {}}/>
+                                <li key={book.id}>
+                                    <Book book={book} onChangingShelfOfBook={(...args) => {}}/>
+                                </li>
                             ))}
                         </ol>
                     </div>
