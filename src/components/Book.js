@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import BookShelfChanger from './BookShelfChanger';
 
 /**
@@ -6,6 +7,11 @@ import BookShelfChanger from './BookShelfChanger';
  * @returns {JSX} a single book
  */
 class Book extends Component {
+
+    static propTypes = {
+        book: PropTypes.object.isRequired,
+        onChangingShelfOfBook: PropTypes.func.isRequired
+    };
 
     checkProps = (book) => (book && book.imageLinks && book.imageLinks.thumbnail && book.authors);
 
@@ -32,5 +38,3 @@ class Book extends Component {
 }
 
 export default Book;
-
-//TODO: add prop-types
