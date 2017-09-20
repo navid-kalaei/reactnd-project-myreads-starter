@@ -14,27 +14,26 @@ class Book extends Component {
         onChangingShelfOfBook: PropTypes.func.isRequired
     };
 
-    checkProps = (book) => (book && book.imageLinks && book.imageLinks.thumbnail && book.authors);
+    coverNotFoundThumbnail = './cover-not-available.jpg';
+
+    checkProps = (book) => (book.authors);
 
     render() {
         const book = this.props.book;
 
-        if(this.checkProps(book)) {
-            return (
-                <div className="book">
-                    <div className="book-top">
-                        <div className="book-cover"
-                             style={{backgroundImage: `url(${book.imageLinks.thumbnail})`}}></div>
-                        <BookShelfChanger book={book} onChangingShelfOfBook={this.props.onChangingShelfOfBook}/>
-                    </div>
-                    <div className="book-title">{book.title}</div>
-                    {book.authors.map((author) => (
-                        <div key={author} className="book-authors">{author}</div>
-                    ))}
+        return (
+            <div className="book">
+                <div className="book-top">
+                    <div className="book-cover"
+                         style={{backgroundImage: `url(${book.imageLinks.thumbnail || this.coverNotFoundThumbnail})`}}></div>
+                    <BookShelfChanger book={book} onChangingShelfOfBook={this.props.onChangingShelfOfBook}/>
                 </div>
-            );
-        }
-        return (null)
+                <div className="book-title">{book.title}</div>
+                {book.authors.map((author) => (
+                    <div key={author} className="book-authors">{author}</div>
+                ))}
+            </div>
+        );
     }
 }
 
