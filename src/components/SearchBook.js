@@ -18,24 +18,26 @@ class SearchBook extends Component {
     };
 
 
+    resetStateByQuery = (query) => (this.setState((state) => ({books:[], query: state.query})));
+
     searchBook = (query) => {
         query = query.trim();
-        this.setState(({query}));
+        this.resetStateByQuery(query);
         if(query) {
             search(query)
                 .then((books) => {
                     if (books) {
                         if (!books.hasOwnProperty('error')) {
-                            this.setState((state) => ({books, query: state.query}))
+                            this.setState((state) => ({books, query: state.query}));
                         }
                         else {
-                            this.setState((state) => ({books:[], query: state.query}))
+                            this.resetStateByQuery(query);
                         }
                     }
                 })
                 .catch((e) => {
                     // console.log('EXCEPTION IN SERACHBOOK: ', e, this.state);
-                    this.setState((state) => ({books:[], query: state.query}));
+                    this.resetStateByQuery(query);
             });
         }
     };
