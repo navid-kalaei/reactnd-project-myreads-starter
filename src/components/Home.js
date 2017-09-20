@@ -11,27 +11,27 @@ import BookShelf from './BookShelf';
 class Home extends Component {
 
     state = {
-        shelves: [
-            {
-                id: "currentlyReading",
-                title: "Currently Reading"
-            },
-            {
-                id: "wantToRead",
-                title: "Want to Read"
-            },
-            {
-                id: "read",
-                title: "Read"
-            }
-        ],
         books: []
-
     };
+
+    shelves = [
+        {
+            id: "currentlyReading",
+            title: "Currently Reading"
+        },
+        {
+            id: "wantToRead",
+            title: "Want to Read"
+        },
+        {
+            id: "read",
+            title: "Read"
+        }
+    ];
 
     componentDidMount() {
         getAll().then((books) => {
-            this.setState((state) => ({shelves: state.shelves, books}))
+            this.setState((state) => ({books}))
         })
     }
 
@@ -50,7 +50,6 @@ class Home extends Component {
 
     changeShelfOfBook = (bookId, newShelf) => {
         this.setState((state) => ({
-            shelves: state.shelves,
             books: this.getUpdatedBooks(state, bookId, newShelf)
         }))
     };
@@ -65,7 +64,7 @@ class Home extends Component {
                     </div>
                     <div className="list-books-content">
                         <div>
-                            {this.state.shelves.map((shelf) => (
+                            {this.shelves.map((shelf) => (
                                 <BookShelf key={shelf.title} title={shelf.title}
                                            books={this.state.books.filter((book) => book.shelf === shelf.id)}
                                            onChangingShelfOfBook={this.changeShelfOfBook}
