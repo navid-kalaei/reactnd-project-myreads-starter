@@ -35,23 +35,11 @@ class Home extends Component {
         })
     }
 
-    getUpdatedBooks = (state, bookId, newShelf) => {
-        const books = [];
-        for(let book of state.books) {
-            if (book.id === bookId){
-                book.shelf = newShelf;
-                books.push(book);
-                continue
-            }
-            books.push(book);
-        }
-        return books;
-    };
-
     changeShelfOfBook = (bookId, newShelf) => {
-        this.setState((state) => ({
-            books: this.getUpdatedBooks(state, bookId, newShelf)
-        }))
+        const newState = Object.assign({}, this.state);
+        const bookIndex = newState.books.findIndex((book) => (book.id === bookId));
+        newState.books[bookIndex].shelf = newShelf;
+        this.setState(newState);
     };
 
     render() {
