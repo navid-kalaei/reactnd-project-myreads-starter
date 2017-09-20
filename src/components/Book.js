@@ -14,7 +14,7 @@ class Book extends Component {
         onChangingShelfOfBook: PropTypes.func.isRequired
     };
 
-    coverNotFoundThumbnail = './cover-not-available.jpg';
+    thumbnailNotAvailableUrl = './thumbnail-not-available.jpg';
 
     render() {
         const book = this.props.book;
@@ -24,7 +24,7 @@ class Book extends Component {
             <div className="book">
                 <div className="book-top">
                     <div className="book-cover"
-                         style={{backgroundImage: `url(${book.imageLinks.thumbnail || this.coverNotFoundThumbnail})`}}></div>
+                         style={{backgroundImage: `url(${book.imageLinks.thumbnail || this.thumbnailNotAvailableUrl})`}}></div>
                     <BookShelfChanger book={book} onChangingShelfOfBook={this.props.onChangingShelfOfBook}/>
                 </div>
                 <div className="book-title">{book.title}</div>
