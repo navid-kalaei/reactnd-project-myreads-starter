@@ -15,8 +15,9 @@ function BookShelfChanger(props) {
             <select defaultValue="none" onChange={(event) => {
                 const currentBook = props.book;
                 const newShelf = event.target.value;
-                update(currentBook, newShelf);
-                props.onChangingShelfOfBook(currentBook.id, newShelf);
+                update(currentBook, newShelf)
+                    .then((res) => (props.onChangingShelfOfBook(currentBook.id, newShelf)))
+                    .catch((e) => {/*console.log(e)*/});
             }}>
                 <option value="none" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
