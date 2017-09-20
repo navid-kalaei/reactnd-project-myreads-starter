@@ -12,9 +12,10 @@ function BookShelfChanger(props) {
 
     return (
         <div className="book-shelf-changer">
-            <select defaultValue="none" onChange={(event) => {
+            <select value={props.book.shelf || 'none'} onChange={(event) => {
                 const currentBook = props.book;
                 const newShelf = event.target.value;
+                console.log(newShelf);
                 update(currentBook, newShelf)
                     .then((res) => (props.onChangingShelfOfBook(currentBook.id, newShelf)))
                     .catch((e) => {/*console.log(e)*/});
