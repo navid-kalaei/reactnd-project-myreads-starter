@@ -16,10 +16,9 @@ class Book extends Component {
 
     coverNotFoundThumbnail = './cover-not-available.jpg';
 
-    checkProps = (book) => (book.authors);
-
     render() {
         const book = this.props.book;
+        const authors = book.authors || ['Author not available'];
 
         return (
             <div className="book">
