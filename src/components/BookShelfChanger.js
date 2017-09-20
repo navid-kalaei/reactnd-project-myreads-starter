@@ -1,6 +1,6 @@
 /**
  * @description Options that move change a book status
- * @exports {component} menue with change options
+ * @exports {component} menu with change options
  */
 
 import React from 'react';
@@ -12,13 +12,13 @@ function BookShelfChanger(props) {
 
     return (
         <div className="book-shelf-changer">
-            <select onChange={(event) => {
+            <select defaultValue="none" value={props.book.shelf} onChange={(event) => {
                 const currentBook = props.book;
                 const newShelf = event.target.value;
                 update(currentBook, newShelf);
                 props.onChangingShelfOfBook(currentBook.id, newShelf);
             }}>
-                <option className="option-disabled">Move to...</option>
+                <option value="none" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
                 <option value="read">Read</option>
