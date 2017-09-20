@@ -29,11 +29,14 @@ class SearchBook extends Component {
                             this.setState((state) => ({books, query: state.query}))
                         }
                         else {
-                            // console.log(`ERROR IN SEARCHBOOK: {error: ${books.error}, query:${query}}`)
+                            this.setState((state) => ({books:[], query: state.query}))
                         }
                     }
                 })
-                .catch((e) => (console.log('EXCEPTION IN SERACHBOOK: ', e, this.state)));
+                .catch((e) => {
+                    // console.log('EXCEPTION IN SERACHBOOK: ', e, this.state);
+                    this.setState((state) => ({books:[], query: state.query}));
+            });
         }
     };
 
