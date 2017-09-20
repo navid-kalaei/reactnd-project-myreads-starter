@@ -33,7 +33,7 @@ class Home extends Component {
         getAll().then((books) => {
             this.setState((state) => ({books}))
         })
-    }
+    };
 
     changeShelfOfBook = (bookId, newShelf) => {
         const newState = Object.assign({}, this.state);
