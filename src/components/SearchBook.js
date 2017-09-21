@@ -6,6 +6,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import sortBy from 'sort-by'
+import lo from 'lodash'
 import { search } from '../BooksAPI'
 import Book from './Book'
 
@@ -17,34 +18,34 @@ class SearchBook extends Component {
         books: []
     };
 
-
-    resetStateByQuery = (query) => (this.setState((state) => ({books:[], query: state.query})));
+    resetState = () => {
+        this.setState((state) => ({books:[], query:state.query}));
+    };
 
     searchBook = (query) => {
-        query = query.trim();
-        this.resetStateByQuery(query);
+        query = lo.trimStart(query);
+        this.setState((state) => ({books:state.books, query}));
         if(query) {
             search(query)
                 .then((books) => {
                     if (books) {
                         if (!books.hasOwnProperty('error')) {
-                            this.setState((state) => ({books, query: state.query}));
+                            this.setState((state) => ({books, query:state.query}));
                         }
                         else {
-                            this.resetStateByQuery(query);
+                            this.resetState();
                         }
                     }
                 })
                 .catch((e) => {
                     // console.log('EXCEPTION IN SERACHBOOK: ', e, this.state);
-                    this.resetStateByQuery(query);
+                    this.resetState();
             });
         }
     };
 
 
     changeShelfOfBook = (...args) => {};
-
 
     render() {
         return (
