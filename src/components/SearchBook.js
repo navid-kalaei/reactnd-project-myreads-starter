@@ -7,10 +7,10 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import sortBy from 'sort-by';
 import lo from 'lodash';
-const has = Object.prototype.hasOwnProperty;
 import { search } from '../BooksAPI';
 import Book from './Book';
 
+const has = Object.prototype.hasOwnProperty;
 
 class SearchBook extends Component {
 
