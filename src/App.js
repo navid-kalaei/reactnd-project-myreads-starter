@@ -24,7 +24,7 @@ class BooksApp extends React.Component {
     };
 
     changeShelfOfBook = (bookId, newShelf) => {
-        const newState = Object.assign({}, this.state);
+        const newState = {...this.state};
         const bookIndex = newState.books.findIndex((book) => (book.id === bookId));
         if(bookIndex !== -1) {
             newState.books[bookIndex].shelf = newShelf;
