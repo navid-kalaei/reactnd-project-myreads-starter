@@ -17,7 +17,10 @@ function BookShelfChanger(props) {
                 const newShelf = event.target.value;
                 console.log(newShelf);
                 update(currentBook, newShelf)
-                    .then((res) => (props.onChangingShelfOfBook(currentBook.id, newShelf)))
+                    .then((res) => {
+                    props.onChangingShelfOfBook(currentBook.id, newShelf);
+                    console.log(res);
+                })
                     .catch((e) => {/*console.log(e)*/});
             }}>
                 <option value="none" disabled>Move to...</option>
