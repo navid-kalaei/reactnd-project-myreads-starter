@@ -7,6 +7,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import sortBy from 'sort-by';
 import lo from 'lodash';
+const has = Object.prototype.hasOwnProperty;
 import { search } from '../BooksAPI';
 import Book from './Book';
 
@@ -29,7 +30,7 @@ class SearchBook extends Component {
             search(query)
                 .then((books) => {
                     if (books) {
-                        if (!books.hasOwnProperty('error')) {
+                        if (!has.call(books, 'error')) {
                             const filteredBooks = books.map((book) => {
                                 const shelvedBook = this.props.shelvedBooks.find((b) => b.id === book.id);
                                 if (shelvedBook) {
