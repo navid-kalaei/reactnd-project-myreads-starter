@@ -30,7 +30,16 @@ class SearchBook extends Component {
                 .then((books) => {
                     if (books) {
                         if (!books.hasOwnProperty('error')) {
-                            this.setState((state) => ({books, query:state.query}));
+                            const filteredBooks = books.map((book) => {
+                                const shelvedBook = this.props.shelvedBooks.find((b) => b.id === book.id);
+                                if (shelvedBook) {
+                                    book.shelf = shelvedBook.shelf;
+                                } else {
+                                    book.shelf = 'none';
+                                }
+                                return book;
+                            });
+                            this.setState((state) => ({books: filteredBooks, query: state.query}))
                         }
                         else {
                             this.resetState();
