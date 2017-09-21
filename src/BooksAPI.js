@@ -77,6 +77,6 @@ export const search = (query, maxResults=20) =>
   }).then(res => res.json())
     .then(data => data.books)
     .catch((e) => {
-    console.log('EXCEPTION IN SEARCH API: ' ,e);
+    // console.log('EXCEPTION IN SEARCH API: ' ,e);
     return null;
 });
