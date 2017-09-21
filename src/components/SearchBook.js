@@ -42,6 +42,9 @@ class SearchBook extends Component {
                     this.resetState();
             });
         }
+        else {
+            this.resetState();
+        }
     };
 
 
