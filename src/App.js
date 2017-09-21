@@ -26,8 +26,10 @@ class BooksApp extends React.Component {
     changeShelfOfBook = (bookId, newShelf) => {
         const newState = Object.assign({}, this.state);
         const bookIndex = newState.books.findIndex((book) => (book.id === bookId));
-        newState.books[bookIndex].shelf = newShelf;
-        this.setState(newState);
+        if(bookIndex !== -1) {
+            newState.books[bookIndex].shelf = newShelf;
+            this.setState(newState);
+        }
     };
 
     render() {
@@ -37,7 +39,11 @@ class BooksApp extends React.Component {
                     <Home books={this.state.books}
                           onChangingShelfOfBook={this.changeShelfOfBook}/>
                 )}/>
-                <Route path="/search" component={SearchBook}/>
+
+                <Route path="/search" render={(props) => (
+                    <SearchBook books={this.state.books}
+                                onChangingShelfOfBook={this.changeShelfOfBook}/>
+                )}/>
             </div>
         )
     }
