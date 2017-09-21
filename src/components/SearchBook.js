@@ -3,12 +3,12 @@
  * @exports {component} SearchBook - The search book route
  */
 
-import React, {Component} from 'react'
-import { Link } from 'react-router-dom'
-import sortBy from 'sort-by'
-import lo from 'lodash'
-import { search } from '../BooksAPI'
-import Book from './Book'
+import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
+import sortBy from 'sort-by';
+import lo from 'lodash';
+import { search } from '../BooksAPI';
+import Book from './Book';
 
 
 class SearchBook extends Component {

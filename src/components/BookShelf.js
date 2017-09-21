@@ -3,10 +3,10 @@
  * @exports {component} bookshelf containing books
  */
 
-import React from 'react'
-import sortBy from 'sort-by'
-import PropTypes from 'prop-types'
-import Book from './Book'
+import React from 'react';
+import sortBy from 'sort-by';
+import PropTypes from 'prop-types';
+import Book from './Book';
 
 
 function BookShelf(props) {
