@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { Route } from 'react-router-dom';
+import { getAll } from "./BooksAPI";
 import './App.css';
 import Home from './components/Home';
 import SearchBook from './components/SearchBook';
@@ -12,10 +13,30 @@ import SearchBook from './components/SearchBook';
 
 class BooksApp extends React.Component {
 
+    state = {
+        books: []
+    };
+
+    componentDidMount() {
+        getAll().then((books) => {
+            this.setState((state) => ({books}))
+        })
+    };
+
+    changeShelfOfBook = (bookId, newShelf) => {
+        const newState = Object.assign({}, this.state);
+        const bookIndex = newState.books.findIndex((book) => (book.id === bookId));
+        newState.books[bookIndex].shelf = newShelf;
+        this.setState(newState);
+    };
+
     render() {
         return (
             <div>
-                <Route exact path="/" component={Home}/>
+                <Route exact path="/" render={(props) => (
+                    <Home books={this.state.books}
+                          onChangingShelfOfBook={this.changeShelfOfBook}/>
+                )}/>
                 <Route path="/search" component={SearchBook}/>
             </div>
         )
