@@ -12,5 +12,10 @@ export default {
             id: "read",
             title: "Read"
         }
+    ],
+    messages: [
+        {
+            authorNotAvailable:'Author not available'
+        }
     ]
 }

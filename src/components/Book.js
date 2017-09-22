@@ -6,11 +6,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BookShelfChanger from './BookShelfChanger';
+import defaults from '../conf/defaults';
 
 function Book(props) {
     const book = props.book;
 
-    const authors = book.authors || ['Author not available'];
+    const authors = book.authors || [defaults.messages.authorNotAvailable];
     const thumbnailNotAvailableUrl = './thumbnail-not-available.jpg';
 
     return (
