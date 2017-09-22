@@ -5,23 +5,23 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { update } from "../BooksAPI";
 
 
 function BookShelfChanger(props) {
 
     return (
         <div className="book-shelf-changer">
-            <select value={props.book.shelf || 'none'} onChange={(event) => {
-                const currentBook = props.book;
-                const newShelf = event.target.value;
-                // console.log(newShelf);
-                update(currentBook, newShelf)
-                    .then((res) => {
-                    props.onChangingShelfOfBook(currentBook.id, newShelf);
-                    // console.log(res);
-                })
-                    .catch((e) => {/*console.log(e)*/});
+            <select value={props.book.shelf || 'none'}
+                    onChange={(event) => {
+                        const currentBook = props.book;
+                        const newShelf = event.target.value;
+                        // console.log(newShelf);
+                        // update(currentBook, newShelf)
+                        //     .then((res) => {
+                            props.onChangingShelfOfBook(currentBook, newShelf);
+                            // console.log(res);
+                        // })
+                        //     .catch((e) => {/*console.log(e)*/});
             }}>
                 <option disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
