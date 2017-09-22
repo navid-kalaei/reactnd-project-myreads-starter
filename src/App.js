@@ -5,12 +5,11 @@
 
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { get, getAll, update } from "./BooksAPI";
+import { getAll, update } from "./BooksAPI";
 import './App.css';
 import Home from './components/Home';
 import SearchBook from './components/SearchBook';
 
-const values = Object.values;
 
 class BooksApp extends React.Component {
 
@@ -25,25 +24,12 @@ class BooksApp extends React.Component {
     };
 
     changeShelfOfBook = (bookToMove, newShelf) => {
-        // console.log(bookToMove);
         update(bookToMove, newShelf)
             .then((res) => {
-                // values(res).map((arr) => (console.log(arr)));
-                // console.log([].concat(...values(res)));
-                const shelvedBookIds = [].concat(...values(res));
-                // console.log(res);
-                Promise
-                    .all(
-                        shelvedBookIds.map((bookId) => (
-                            get(bookId)
-                        ))
-                    )
+                getAll()
                     .then(
-                        (shelvedBooks) => {
-                            // console.log(shelvedBooks);
-                            this.setState({books:shelvedBooks});
-                        }
-                    );
+                        (books) => (this.setState({books}))
+                    )
             });
     };
 
