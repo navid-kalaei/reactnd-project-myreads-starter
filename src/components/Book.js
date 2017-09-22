@@ -12,7 +12,7 @@ function Book(props) {
     const book = props.book;
 
     const authors = book.authors || [defaults.messages.authorNotAvailable];
-    const thumbnailNotAvailableUrl = './thumbnail-not-available.jpg';
+    const thumbnailNotAvailableUrl = defaults.urls.thumbnailNotAvailableUrl;
 
     return (
         <div className="book">

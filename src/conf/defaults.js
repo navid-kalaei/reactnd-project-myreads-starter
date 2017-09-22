@@ -15,7 +15,12 @@ export default {
     ],
     messages: [
         {
-            authorNotAvailable:'Author not available'
+            authorNotAvailable:"Author not available"
+        }
+    ],
+    urls: [
+        {
+            thumbnailNotAvailableUrl: "./thumbnail-not-available.jpg"
         }
     ]
 }
