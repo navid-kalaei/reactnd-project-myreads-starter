@@ -6,11 +6,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BookShelf from './BookShelf';
-import defaults from '../conf/defaults';
+import { shelves } from '../conf/defaults';
 
 function Home(props) {
-
-    const shelves = defaults.shelves;
 
     return (
         <div className="app">
