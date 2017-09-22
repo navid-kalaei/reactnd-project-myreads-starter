@@ -6,23 +6,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BookShelf from './BookShelf';
+import defaults from '../conf/defaults';
 
 function Home(props) {
 
-    const shelves = [
-        {
-            id: "currentlyReading",
-            title: "Currently Reading"
-        },
-        {
-            id: "wantToRead",
-            title: "Want to Read"
-        },
-        {
-            id: "read",
-            title: "Read"
-        }
-    ];
+    const shelves = defaults.shelves;
 
     return (
         <div className="app">
